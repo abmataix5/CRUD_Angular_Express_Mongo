@@ -1,0 +1,60 @@
+
+<body>
+
+<form  [formGroup]="productoForm" (ngSubmit)="agregarProducto()" name="formDatosPersonales">
+
+	<div>
+		<br>
+		<br>
+		<label for="tipo">Tipo</label>
+		<input type="text" name="tipo" id="tipo" formControlName="tipo" placeholder="Smartphone,TV..."/>
+
+		<div class="error" 	*ngIf="productoForm.get('tipo')?.hasError('required') && productoForm.get('tipo')?.touched">
+			<span>Campo obligatorio!</span>
+	    </div> 
+	</div>
+
+	<div>
+		<br>
+		<br>
+		<label for="modelo">Modelo</label>
+		<input type="text" name="modelo" id="modelo" formControlName="modelo"  placeholder="Iphone,Xiaomi..."/>
+
+		<div class="error" 	*ngIf="productoForm.get('modelo')?.hasError('required') &&    productoForm.get('modelo')?.touched">
+			<span>Campo obligatorio!</span>
+	    </div> 
+	</div>
+
+
+	<div>
+		<br>
+		<br>
+		<label for="estado">Estado</label>
+		<input type="text" name="estado" id="estado"  formControlName="estado" placeholder="Nuevo,deteriorado..."/>
+
+		<div class="error" *ngIf="productoForm.get('estado')?.hasError('required') &&   productoForm.get('estado')?.touched">
+			<span>Campo obligatorio!</span>
+	    </div> 
+	</div>
+
+	<div>
+		<br>
+		<br>
+		<label for="precio">Precio</label>
+		<input type ="text" name="precio" formControlName="precio"  id="precio" placeholder="150,2000..."/>
+
+		<div class="error" 		*ngIf="productoForm.get('precio')?.hasError('required') &&  productoForm.get('precio')?.touched">	  
+			<span>Campo obligatorio!</span>
+	    </div> 
+	</div>
+
+	<br>
+	<br>
+
+	<button type="submit" [disabled]="!productoForm.valid" class="btn">AÑADIR</button>
+	<button routerLink="/devices" class="btn">VOLVER</button>
+
+</form>
+
+</body>
+

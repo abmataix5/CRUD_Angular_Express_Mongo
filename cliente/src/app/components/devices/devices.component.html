@@ -1,0 +1,29 @@
+<body>
+<div class="container">
+	<button routerLink="/crear-producto">Añadir dispositivo</button>
+	<table *ngIf="listProductos.length > 0">
+		<thead>
+			<tr>
+				<th>TIPO</th>
+				<th>MODELO</th>
+				<th>ESTADO</th>
+				<th>PRECIO</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let producto of listProductos">
+				<td>{{ producto.tipo }}</td>
+				<td>{{ producto.modelo }}</td>
+				<td>{{ producto.estado }}</td>
+				<td>{{ producto.precio }}</td>
+				<td><button [routerLink]="['/editar-producto', producto._id ]" >Editar</button><button (click)="eliminarProducto(producto._id)" >Borrar</button></td>
+	
+			</tr>
+		
+		
+		</tbody>
+	</table>
+	<h3 *ngIf="listProductos.length == 0">Lo sentimos, pero no tenemos ningun dispositivo disponible</h3>
+</div>
+</body>
